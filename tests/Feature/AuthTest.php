@@ -9,6 +9,12 @@ use Tests\TestCase;
 
 class AuthTest extends TestCase
 {
+    use RefreshDatabase;
+
+    public function setUp(): void {
+        parent::setUp();
+    }
+
     public function test_login_fail_with_wrong_credentials(): void
     {
         $this->postJson('/api/login', [
